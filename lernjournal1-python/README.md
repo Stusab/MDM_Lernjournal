@@ -19,40 +19,93 @@
 
 
 
+# Lernjournal 1 – Heilpflanzen App mit semantischer Suche & Model Deployment
+
 ## App, Funktionalität
 
- Nutzeroberfläche
-Die Benutzer geben über eine einfache Streamlit-Seite Symptome ein.
+Die Nutzeroberfläche erlaubt es, über eine **Streamlit-Seite Symptome einzugeben**.  
+Mittels **SentenceTransformer** (`distiluse-base-multilingual-cased-v1`) werden die Eingaben semantisch mit einem CSV-Symptom-Datensatz verglichen und die Top-N ähnlichsten Heilpflanzen-Einträge zurückgegeben.
 
-Semantische Suche
-Die Texteingabe wird mit SentenceTransformer in einen Vektor umgewandelt und mit bestehenden Symptomvektoren verglichen. Das Modell distiluse-base-multilingual-cased-v1 liefert die Top-N ähnlichsten Einträge aus dem CSV-Datensatz zurück.
+Ein **Scrapy-Crawler** lädt automatisiert **Heilpflanzen-Webseiten** und extrahiert `Name` + `Anwendungsgebiete` über XPath oder CSS.  
+Zur Ermittlung von Selektoren wurde auch ein BeautifulSoup-Test durchgeführt.
 
-Scrapy-Crawler
-Der Scrapy-Crawler lädt automatisiert Heilpflanzenseiten und extrahiert Name + Anwendungsgebiete via xpath / css.
+> 🖼️ **Scrapy Spider erfolgreich abgeschlossen:**  
+> ![scrapy](scrapy.png)
 
-Selenium-Skript
-Für unvollständige Daten (ohne Symptome) wird mit Selenium dynamisch nachgeladen. Die Einträge stammen aus einer JSON-Datei und die Ergebnisse werden in MongoDB gespeichert.
-
-BeautifulSoup-Test
-Die Datei test_bs4.py diente der Analyse, ob HTML-Strukturen korrekt geparst werden können, insbesondere <ul>-Listen nach dem „Anwendungsgebiete“-Header.
+---
 
 ## Dependency Management
 
- Für das Management der Projektabhängigkeiten wurde eine requirements.txt verwendet. Diese enthält alle benötigten Python-Pakete mit exakten Versionsangaben (z. B. sentence-transformers==2.2.2, torch>=1.10, streamlit). Dadurch ist sichergestellt, dass die Anwendung auf jedem System mit den gleichen Bibliotheken ausgeführt werden kann.
+Die Datei `requirements.txt` enthält alle benötigten Python-Bibliotheken inkl. exakter Versionen (z. B. `sentence-transformers==2.2.2`, `streamlit==1.10`). 
 
-Zusätzlich sorgt das Dockerfile dafür, dass beim Container-Build automatisch alle Abhängigkeiten installiert werden:
+Das Dockerfile sorgt mit folgendem Befehl dafür, dass alle Abhängigkeiten reproduzierbar installiert werden:
 
-
+```bash
 RUN pip install --no-cache-dir -r requirements.txt
+```
 
-Diese Kombination ermöglicht eine reproduzierbare und portable Entwicklungsumgebung, sowohl lokal als auch beim Deployment (z. B. via GitHub Actions oder DockerHub).
+---
 
-## Deployment
+## Containerisierung & Lokales Deployment
 
- Die Anwendung wird mit einem einfachen dockerfile containerisiert. Sie läuft dann auf Port 8501 mit dem Befehl:
+Die Anwendung wurde containerisiert über ein Dockerfile und kann lokal via:
 
+```bash
 streamlit run app.py --server.port=8501 --server.address=0.0.0.0
+```
 
-Eine GitHub Action (docker-build.yml) automatisiert den Build und Upload in DockerHub.
-Leider ist es mir in diesem Projekt nicht möglich gewesen via Azure zu deployen. Ich habe das deployment 6h lang versucht, bis ich am ende immerwieder den Error bezüglich Nutzerrechte und einschränkung meines Students Account erhalten habe.
+oder via Docker ausgeführt werden.
+
+> 🖼️ **Docker-Container mit Streamlit lokal ausgeführt:**  
+> ![deployment_2](deployment_2.png)
+
+> 🖼️ **Docker-Image aufgebaut und einsatzbereit:**  
+> ![docker_image](docker_image.png)
+
+---
+
+## Azure Deployment
+
+Das erstellte Docker-Image `stusab/heilpflanzen-app:2.1.2` wurde auf **Docker Hub** veröffentlicht und in einer **Azure Web App** eingebunden.
+
+> 🖼️ **Azure App Service mit Container Registry Deployment:**  
+> ![deployment_azure](deployment_azure.png)
+
+**Hinweis:** Das Deployment auf Azure konnte leider nicht erfolgreich abgeschlossen werden, da es zu Authentifizierungs- oder Berechtigungsproblemen kam (z. B. Studenten-Account-Limitierungen). Die App läuft jedoch **lokal vollständig stabil und reproduzierbar**.
+
+---
+
+## Webanalyse & Scraping-Vorbereitung
+
+Zur Extraktion der Informationen wurden XPath- oder CSS-Selektoren mit Hilfe der DevTools analysiert. Hierbei wurde z. B. gezielt auf Listeneinträge unter dem "Anwendungsgebiete"-Header geachtet.
+
+> 🖼️ **Analyse der DOM-Struktur mit Chrome DevTools:**  
+> ![webpage](webpage.png)
+
+---
+
+## Lokale Ausführung (venv)
+
+Die Anwendung kann alternativ auch ohne Docker lokal mit virtueller Umgebung ausgeführt werden:
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+> 🖼️ **Streamlit lokal mit venv gestartet:**  
+> ![image](image.png)
+
+---
+
+## Fazit
+
+Das Projekt zeigt den kompletten Ablauf von **Scraping**, **Datenverarbeitung**, **Modellbereitstellung**, **Containerisierung** bis hin zum (versuchten) **Deployment auf Azure**. 
+
+Die Anwendung funktioniert **lokal einwandfrei**, das Deployment in der Cloud scheiterte jedoch aufgrund externer Restriktionen.
+
+---
+
 
