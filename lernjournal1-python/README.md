@@ -15,8 +15,8 @@
 ||torch	
 ||beautifulsoup4
 |
-| Verwendete Library aus PyPi (URL) | 
-||https://pypi.org/project/scikit-learn/
+| Verwendete Library aus PyPi (URL) | https://pypi.org/project/scikit-learn/
+||
 ||https://pypi.org/project/nltk/
 ||https://pypi.org/project/pandas/
 ||https://pypi.org/project/sentence-transformers/
