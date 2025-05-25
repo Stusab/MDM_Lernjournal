@@ -15,7 +15,7 @@
 
 ### Reflexion, Zusammenfassung
 
- Durch die Arbeit an den verschiedenen Wochenaufgaben konnte ich mein Verständnis für den praktischen Einsatz von Machine Learning, Containerisierung und Model Deployment deutlich vertiefen. Besonders lehrreich war die Kombination aus lokalen Experimenten, Cloud-Deployments und der Fehleranalyse bei nicht erfolgreichen Versuchen. Da es sich um ein Modul im dritten Semester handelt, hätte ich nicht erwartet, dass der zeitliche Aufwand so hoch ist – dennoch habe ich dadurch wertvolle Kompetenzen für den produktiven Umgang mit ML-Workflows und modernen DevOps-Tools gewonnen.
+ Durch die Arbeit an den verschiedenen Wochenaufgaben konnte ich mein Verständnis für den praktischen Einsatz von Machine Learning, Containerisierung und Model Deployment deutlich vertiefen. Besonders lehrreich war die Kombination aus lokalen Experimenten, Cloud-Deployments und der Fehleranalyse bei nicht erfolgreichen Versuchen. Da es sich um ein 3etc Modul   handelt, hätte ich nicht erwartet, dass der zeitliche Aufwand so hoch ist – dennoch habe ich dadurch wertvolle Kompetenzen für den produktiven Umgang mit ML-Workflows und modernen DevOps-Tools gewonnen. Es sollte aber ein 6etc Modul sein, wenn man erwärtet alles sauber zu lösen, die Zeit die man für 3 Credits einplant reichen ganz klar nicht.
 
 ### Feedback zur Vorlesung (optional)
 
