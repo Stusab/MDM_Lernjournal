@@ -63,6 +63,8 @@
 - Das Projekt wurde mit einem Dockerfile containerisiert.
 - Deployment erfolgte auf **Render.com** über GitHub-Integration und Auswahl des Docker-Runtimes.
 - Region: EU (Frankfurt)
+- Ich habe mich bewusst gegen das Deployment mit Azure entschieden, da es im Projekt 1 auch nach langem ausprobieren nicht funktioniert hat.
+- Desshalb habe ich Render und Streamlit Cloud deplyed
 
 📸 **Deploy-Konfiguration bei Render:**  
 ![Deployment](images/render.png)
