@@ -30,7 +30,7 @@ Ein **Scrapy-Crawler** lädt automatisiert **Heilpflanzen-Webseiten** und extrah
 Zur Ermittlung von Selektoren wurde auch ein BeautifulSoup-Test durchgeführt.
 
 > 🖼️ **Scrapy Spider erfolgreich abgeschlossen:**  
-> ![scrapy](scrapy.png)
+> ![scrapy](images/scrapy.png)
 
 ---
 
@@ -57,10 +57,10 @@ streamlit run app.py --server.port=8501 --server.address=0.0.0.0
 oder via Docker ausgeführt werden.
 
 > 🖼️ **Docker-Container mit Streamlit lokal ausgeführt:**  
-> ![deployment_2](deployment_2.png)
+> ![deployment_2](images/deployment_2.png)
 
 > 🖼️ **Docker-Image aufgebaut und einsatzbereit:**  
-> ![docker_image](docker_image.png)
+> ![docker_image](images/docker_image.png)
 
 ---
 
@@ -69,9 +69,9 @@ oder via Docker ausgeführt werden.
 Das erstellte Docker-Image `stusab/heilpflanzen-app:2.1.2` wurde auf **Docker Hub** veröffentlicht und in einer **Azure Web App** eingebunden.
 
 > 🖼️ **Azure App Service mit Container Registry Deployment:**  
-> ![deployment_azure](deployment_azure.png)
+> ![deployment_azure](images/deployment_azure.png)
 
-**Hinweis:** Das Deployment auf Azure konnte leider nicht erfolgreich abgeschlossen werden, da es zu Authentifizierungs- oder Berechtigungsproblemen kam (z. B. Studenten-Account-Limitierungen). Die App läuft jedoch **lokal vollständig stabil und reproduzierbar**.
+⚠️ **Hinweis:** Das Deployment auf Azure konnte leider nicht erfolgreich abgeschlossen werden, da es zu Authentifizierungs- oder Berechtigungsproblemen kam (z. B. Studenten-Account-Limitierungen). Die App läuft jedoch **lokal vollständig stabil und reproduzierbar**.
 
 ---
 
@@ -80,7 +80,7 @@ Das erstellte Docker-Image `stusab/heilpflanzen-app:2.1.2` wurde auf **Docker Hu
 Zur Extraktion der Informationen wurden XPath- oder CSS-Selektoren mit Hilfe der DevTools analysiert. Hierbei wurde z. B. gezielt auf Listeneinträge unter dem "Anwendungsgebiete"-Header geachtet.
 
 > 🖼️ **Analyse der DOM-Struktur mit Chrome DevTools:**  
-> ![webpage](webpage.png)
+> ![webpage](images/webpage.png)
 
 ---
 
@@ -96,7 +96,7 @@ streamlit run app.py
 ```
 
 > 🖼️ **Streamlit lokal mit venv gestartet:**  
-> ![image](image.png)
+> ![image](images/image.png)
 
 ---
 
@@ -105,7 +105,4 @@ streamlit run app.py
 Das Projekt zeigt den kompletten Ablauf von **Scraping**, **Datenverarbeitung**, **Modellbereitstellung**, **Containerisierung** bis hin zum (versuchten) **Deployment auf Azure**. 
 
 Die Anwendung funktioniert **lokal einwandfrei**, das Deployment in der Cloud scheiterte jedoch aufgrund externer Restriktionen.
-
----
-
 
