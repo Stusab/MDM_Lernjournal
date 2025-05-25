@@ -6,23 +6,24 @@
 | -------- | ------- |
 | Repository (URL)  |
 | Kurze Beschreibung der App-Funktion |Ziel des Projekts war es, eine intelligente Webanwendung zu entwickeln, die Heilpflanzen auf Basis von Benutzersymptomen vorschlägt. Dies geschieht durch semantisches Matching von eingegebenem Freitext mit einem vordefinierten Heilpflanzen-Symptom-Datensatz. |
-| Verwendete Library aus PyPi (Name) | streamlit	
-scikit-learn	
-nltk	
-pandas	
-sentence-transformers	
-transformers	
-torch	
-beautifulsoup4|
+| Verwendete Library aus PyPi (Name) | streamlit
+||scikit-learn	
+||nltk	
+||pandas	
+||sentence-transformers	
+||transformers	
+||torch	
+||beautifulsoup4
+|
 | Verwendete Library aus PyPi (URL) | 
-|https://pypi.org/project/scikit-learn/
-https://pypi.org/project/nltk/
-https://pypi.org/project/pandas/
-https://pypi.org/project/sentence-transformers/
-https://pypi.org/project/streamlit/
-https://pypi.org/project/transformers/
-https://pypi.org/project/torch/
-https://pypi.org/project/beautifulsoup4/
+||https://pypi.org/project/scikit-learn/
+||https://pypi.org/project/nltk/
+||https://pypi.org/project/pandas/
+||https://pypi.org/project/sentence-transformers/
+||https://pypi.org/project/streamlit/
+||https://pypi.org/project/transformers/
+||https://pypi.org/project/torch/
+||https://pypi.org/project/beautifulsoup4/
 | ... | |
 | ... | |
 
