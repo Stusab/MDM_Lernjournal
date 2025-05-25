@@ -65,8 +65,4 @@ Die Anwendung läuft lokal stabil mit Docker (`localhost:80` oder `8501`). Ein A
 
 
 
-* [ ] TODO
 
-### Deployment
-
-* [ ] TODO
